@@ -23,6 +23,7 @@ import { ORDER_LIST_MY_RESET } from '../Constants/OrderConstants';
 // import { addToCart, listCart } from './cartActions';
 import { CART_LIST_MY_RESET } from '../Constants/CartConstants';
 
+const url_new = 'https://dp-balo-store-api.vercel.app';
 // LOGIN
 export const login = (email, password) => async (dispatch) => {
     try {
@@ -34,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post(`/api/users/login`, { email, password }, config);
+        const { data } = await axios.post(`${url_new}/api/users/login`, { email, password }, config);
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
         // dispatch(listCart());
         localStorage.setItem('userInfo', JSON.stringify(data));
@@ -66,7 +67,7 @@ export const register = (name, email, phone, password) => async (dispatch) => {
             },
         };
 
-        const { data } = await axios.post(`/api/users`, { name, email, phone, password }, config);
+        const { data } = await axios.post(`${url_new}/api/users`, { name, email, phone, password }, config);
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
@@ -93,7 +94,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
             },
         };
 
-        const { data } = await axios.get(`/api/users/user`, config);
+        const { data } = await axios.get(`${url_new}/api/users/user`, config);
         dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
@@ -123,7 +124,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
             },
         };
 
-        const { data } = await axios.put(`/api/users/profile`, user, config);
+        const { data } = await axios.put(`${url_new}/api/users/profile`, user, config);
         dispatch({ type: USER_UPDATE_PROFILE_SUCCESS, payload: data });
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
@@ -155,7 +156,7 @@ export const updateUserPassword = (user) => async (dispatch, getState) => {
             },
         };
 
-        const { data } = await axios.put(`/api/users/profile`, user, config);
+        const { data } = await axios.put(`${url_new}/api/users/profile`, user, config);
         dispatch({ type: USER_UPDATE_PASSWORD_SUCCESS, payload: data });
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
 
@@ -175,7 +176,7 @@ export const updateUserPassword = (user) => async (dispatch, getState) => {
 export const listUser = () => async (dispatch) => {
     try {
         dispatch({ type: USER_LIST_REQUEST });
-        const { data } = await axios.get(`/api/users/all`);
+        const { data } = await axios.get(`${url_new}/api/users/all`);
 
         dispatch({ type: USER_LIST_SUCCESS, payload: data });
     } catch (error) {
