@@ -28,10 +28,12 @@ import {
 import { logout } from './userActions';
 
 // PRODUCT LIST ALL
+const url_new = 'https://dp-balo-store-api.vercel.app';
+
 export const ListProductAll = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_ALL_REQUEST });
-        const { data } = await axios.get(`/api/products/ProductAll`);
+        const { data } = await axios.get(`${url_new}/api/products/ProductAll`);
         dispatch({ type: PRODUCT_LIST_ALL_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -45,7 +47,7 @@ export const ListProductAll = () => async (dispatch) => {
 export const getAllReviews = (productId) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_ALL_REVIEW_REQUEST });
-        const { data } = await axios.get(`/api/products/${productId}/onlyProduct/allReview`);
+        const { data } = await axios.get(`${url_new}/api/products/${productId}/onlyProduct/allReview`);
         dispatch({ type: PRODUCT_ALL_REVIEW_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -59,7 +61,7 @@ export const getAllReviews = (productId) => async (dispatch) => {
 export const getAllComments = (productId) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_ALL_COMMENTS_REQUEST });
-        const { data } = await axios.get(`/api/products/${productId}/onlyProduct/allComments`);
+        const { data } = await axios.get(`${url_new}/api/products/${productId}/onlyProduct/allComments`);
         dispatch({ type: PRODUCT_ALL_COMMENTS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -76,7 +78,7 @@ export const listProduct =
         try {
             dispatch({ type: PRODUCT_LIST_REQUEST });
             const { data } = await axios.get(
-                `/api/products?&category=${category}&keyword=${keyword}&pageNumber=${pageNumber}&rating=${rating}
+                `${url_new}/api/products?&category=${category}&keyword=${keyword}&pageNumber=${pageNumber}&rating=${rating}
         &minPrice=${minPrice}&maxPrice=${maxPrice}&sortProducts=${sortProducts}`,
             );
             dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
@@ -92,7 +94,7 @@ export const listProduct =
 export const listProductDetails = (id) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST });
-        const { data } = await axios.get(`/api/products/${id}`);
+        const { data } = await axios.get(`${url_new}/api/products/${id}`);
         dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -118,7 +120,7 @@ export const createProductReview = (productId, rating, color, comment, name) => 
             },
         };
 
-        await axios.post(`/api/products/${productId}/review`, { rating, color, comment, name }, config);
+        await axios.post(`${url_new}/api/products/${productId}/review`, { rating, color, comment, name }, config);
         dispatch({ type: PRODUCT_CREATE_REVIEW_SUCCESS });
     } catch (error) {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
@@ -148,7 +150,7 @@ export const createProductComment = (productId, comments) => async (dispatch, ge
             },
         };
 
-        await axios.post(`/api/products/${productId}/comment`, comments, config);
+        await axios.post(`${url_new}/api/products/${productId}/comment`, comments, config);
         dispatch({ type: PRODUCT_CREATE_COMMENT_SUCCESS });
     } catch (error) {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
@@ -178,7 +180,7 @@ export const createProductCommentChild = (productId, question) => async (dispatc
             },
         };
 
-        await axios.post(`/api/products/${productId}/commentchild`, question, config);
+        await axios.post(`${url_new}/api/products/${productId}/commentchild`, question, config);
         dispatch({ type: PRODUCT_CREATE_COMMENTCHILD_SUCCESS });
     } catch (error) {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
