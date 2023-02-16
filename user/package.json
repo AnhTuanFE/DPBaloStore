@@ -1,7 +1,6 @@
 {
   "name": "dbbalostore",
   "version": "0.1.0",
-  "proxy": "https://dp-balo-store-api.vercel.app",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
