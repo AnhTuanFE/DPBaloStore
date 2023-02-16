@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
-import { Link } from 'react-router-dom';
-import Message from './../components/LoadingError/Error';
+// import { Link } from 'react-router-dom';
+// import Message from './../components/LoadingError/Error';
 import { useDispatch, useSelector } from 'react-redux';
-import Loading from '../components/LoadingError/Loading';
+// import Loading from '../components/LoadingError/Loading';
 import moment from 'moment';
 import { getNews } from '../Redux/Actions/newsAction';
 

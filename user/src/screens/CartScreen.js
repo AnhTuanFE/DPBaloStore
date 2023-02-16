@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';//, useState 
 import Header from './../components/Header';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, clearFromCart, listCart, removefromcart } from './../Redux/Actions/cartActions';
+import { addToCart, listCart , removefromcart} from './../Redux/Actions/cartActions';// clearFromCart, 
 import { Checkbox } from 'primereact/checkbox';
-import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
-import 'primereact/resources/primereact.min.css'; //core css
-import 'primeicons/primeicons.css'; //icons
+// import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
+// import 'primereact/resources/primereact.min.css'; //core css
+// import 'primeicons/primeicons.css'; //icons
 import { CART_CREATE_RESET } from '../Redux/Constants/CartConstants';
 import { toast } from 'react-toastify';
 import Toast from '../components/LoadingError/Toast';
@@ -26,10 +26,9 @@ const CartScreen = ({ match, location, history }) => {
     const qty = location.search ? Number(location.search.split('=')[1]) : 1;
     const color = location.search && location.search.split('=')[2];
 
-    const [checked, setChecked] = useState(false);
+    // const [checked, setChecked] = useState(false);
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
-    // console.log(cartItems, 'heheh');
     const cartDel = useSelector((state) => state.cartDelete);
     const { loading: loa, success: suc, mesage: mes } = cartDel;
     const cartCreate = useSelector((state) => state.cartCreate);

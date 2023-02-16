@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout, updateUserProfile, getUserDetails } from '../Redux/Actions/userActions';
-import { listCart } from '../Redux/Actions/cartActions';
-import { ListAvatar } from '../Redux/Actions/avatarAction';
+import { logout,  getUserDetails } from '../Redux/Actions/userActions';//updateUserProfile,
+// import { listCart } from '../Redux/Actions/cartActions';
+// import { ListAvatar } from '../Redux/Actions/avatarAction';
 import NavBar from './navbar';
 import Suggestions from './suggestions/Suggestions';
 import './suggestions/style.css';

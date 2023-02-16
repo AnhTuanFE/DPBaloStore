@@ -1,5 +1,5 @@
 {
-  "name": "BaloShop",
+  "name": "dbbalostore",
   "version": "0.1.0",
   "proxy": "https://dp-balo-store-api.vercel.app",
   "private": true,
