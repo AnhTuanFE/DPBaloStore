@@ -11,12 +11,12 @@ import {
 } from '../Constants/NewsContants.js';
 
 //GET ALL NEWS
-const url_new = 'https://dp-balo-store-api.vercel.app';
+
 
 export const ListNews = () => async (dispatch) => {
     try {
         dispatch({ type: NEWS_LIST_REQUEST });
-        const { data } = await axios.get(`${url_new}/api/news`);
+        const { data } = await axios.get(`/api/news`);
         dispatch({ type: NEWS_LIST_SUCCESS, payload: data });
     } catch (error) {
         dispatch({
@@ -30,7 +30,7 @@ export const ListNews = () => async (dispatch) => {
 export const getNews = (newsId) => async (dispatch) => {
     try {
         dispatch({ type: NEWS_GET_REQUEST });
-        const { data } = await axios.get(`${url_new}/api/news/${newsId}`);
+        const { data } = await axios.get(`/api/news/${newsId}`);
         dispatch({ type: NEWS_GET_SUCCESS, payload: data });
     } catch (error) {
         // const message = error.response && error.response.data.message ? error.response.data.message : error.message;
