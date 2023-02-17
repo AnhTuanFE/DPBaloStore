@@ -22,7 +22,6 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 // cors
-const cors = require('cors');
 app.use(cors());
 
 // API
