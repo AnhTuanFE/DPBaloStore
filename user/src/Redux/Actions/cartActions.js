@@ -18,7 +18,7 @@ import { logout } from './userActions';
 
 // ADD TO CART OLD
 // export const addToCart = (id, qty) => async (dispatch, getState) => {
-//   const { data } = await axios.get(`${url_new}/api/products/${id}`);
+//   const { data } = await axios.get(`/api/products/${id}`);
 
 //   dispatch({
 //     type: CART_ADD_ITEM,
@@ -34,7 +34,7 @@ import { logout } from './userActions';
 
 //   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 // };
-const url_new = 'https://dp-balo-store-api.vercel.app';
+
 
 export const listCart = () => async (dispatch, getState) => {
     try {
@@ -50,7 +50,7 @@ export const listCart = () => async (dispatch, getState) => {
             },
         };
 
-        const { data } = await axios.get(`${url_new}/api/cart/${userInfo._id}`, config);
+        const { data } = await axios.get(`/api/cart/${userInfo._id}`, config);
         localStorage.setItem('cartItems', JSON.stringify(data));
 
         dispatch({ type: CART_LIST_SUCCESS, payload: data });
@@ -80,7 +80,7 @@ export const addToCart = (productId, color, qty) => async (dispatch, getState) =
             },
         };
 
-        const { data } = await axios.post(`${url_new}/api/cart/`, { productId, color, qty, _id }, config);
+        const { data } = await axios.post(`/api/cart/`, { productId, color, qty, _id }, config);
         dispatch({ type: CART_CREATE_SUCCESS });
     } catch (error) {
         const message = error.response && error.response.data.message ? error.response.data.message : error.message;
@@ -110,7 +110,7 @@ export const removefromcart = (pr) => async (dispatch, getState) => {
         };
         const user = userInfo._id;
         await axios.post(
-            `${url_new}/api/cart/delete`,
+            `/api/cart/delete`,
             {
                 user,
                 pr,
@@ -148,7 +148,7 @@ export const clearFromCart = () => async (dispatch, getState) => {
             },
         };
         const user = userInfo._id;
-        await axios.delete(`${url_new}/api/cart/${user}`, config);
+        await axios.delete(`/api/cart/${user}`, config);
 
         dispatch({ type: CART_CLEAR_SUCCESS });
     } catch (error) {

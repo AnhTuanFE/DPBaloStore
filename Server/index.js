@@ -14,13 +14,15 @@ import path from 'path';
 import Upload from './Routes/Upload.js';
 import newsRouter from './Routes/newsRouter.js';
 import forgotPassRouter from './Routes/forgotPassRouter.js';
-
+import cors from 'cors';
 dotenv.config();
 import { Server } from 'http';
 import imageProfile from './Routes/imageProfile.js';
 connectDatabase();
 const app = express();
+// cors
 app.use(express.json());
+app.use(express.static('public'));
 
 // API
 
@@ -28,6 +30,7 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
 app.use('/public', express.static('public'));
+app.use(cors());
 
 app.use('/api/cart', cartRoutes);
 app.use('/api/slider', SliderRouter);
@@ -45,7 +48,6 @@ app.use('/api/imageProfile', imageProfile);
 // forgot
 app.use('/api/forgotPass', forgotPassRouter);
 
-app.use(express.static('public'));
 // ERROR HANDLER
 app.use(notFound);
 app.use(errorHandler);

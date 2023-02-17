@@ -18,10 +18,12 @@ import OrderScreen from './screens/OrderScreen';
 import NotFound from './screens/NotFound';
 import PrivateRouter from './PrivateRouter';
 import Reset from './components/profileComponents/Reset';
-
+import axios from 'axios'
 // path - router - user
-
+axios.defaults.baseURL = "https://dp-balo-store-api.vercel.app"
+// axios.defaults.baseURL = "http://localhost:5000/"
 const App = () => {
+    
     return (
         <Router>
             <Switch>

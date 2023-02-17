@@ -2,13 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import { SLIDER_FAIL, SLIDER_REQUEST, SLIDER_SUCCESS } from '../Constants/SliderConstants'
 
-const url_new = 'https://dp-balo-store-api.vercel.app';
+
 
 export const ListSlider = () => async (dispatch) => {
     try {
         dispatch({ type: SLIDER_REQUEST });
         const { data } = await axios.get(
-            `${url_new}/api/slider`
+            `/api/slider`
         )
         dispatch({ type: SLIDER_SUCCESS, payload: data })
     } catch (error) {
