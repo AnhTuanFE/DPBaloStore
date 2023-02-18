@@ -20,7 +20,6 @@ import { Server } from 'http';
 import imageProfile from './Routes/imageProfile.js';
 connectDatabase();
 const app = express();
-// cors
 app.use(express.json());
 app.use(express.static('public'));
 
