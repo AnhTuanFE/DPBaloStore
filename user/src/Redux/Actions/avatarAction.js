@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { AVATAR_REQUEST, AVATAR_SUCCESS, AVATAR_FAIL } from '../Constants/AvatarConstants';
 
-
 export const ListAvatar = () => async (dispatch) => {
     try {
         dispatch({ type: AVATAR_REQUEST });

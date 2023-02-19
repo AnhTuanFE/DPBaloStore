@@ -17,7 +17,8 @@ export default class Reset extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const { email } = this.state;
-        fetch('http://localhost:3000/api/forgotPass/forgotPassword', {
+        // http://localhost:3000
+        fetch('https://dp-balo-store-api.vercel.app/api/forgotPass/forgotPassword', {
             method: 'POST',
             crossDomain: true,
             headers: {

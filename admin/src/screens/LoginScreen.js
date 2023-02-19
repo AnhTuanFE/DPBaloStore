@@ -37,7 +37,7 @@ const Login = ({ history }) => {
                         <div className="mb-3">
                             <input
                                 className="form-control"
-                                placeholder="Email"
+                                placeholder="Email: admin@gmail.com"
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -46,7 +46,7 @@ const Login = ({ history }) => {
                         <div className="mb-3">
                             <input
                                 className="form-control"
-                                placeholder="Password"
+                                placeholder="Password: 123456"
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
