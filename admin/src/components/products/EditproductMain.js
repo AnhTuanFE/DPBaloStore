@@ -294,7 +294,7 @@ const EditproductMain = (props) => {
                                                     <option value={-1} selected>
                                                         Chọn
                                                     </option>
-                                                    {categories.map((cate, index) => (
+                                                    {categories?.map((cate, index) => (
                                                         <option key={index} value={cate._id}>
                                                             {cate.name}
                                                         </option>

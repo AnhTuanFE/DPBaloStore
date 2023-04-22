@@ -23,9 +23,11 @@ import AddNewsScreen from './screens/AddNewsScreen';
 import EditNewsScreen from './screens/EditNewsScreen';
 import NewsScreen from './screens/NewsScreen';
 import CommentScreen from './screens/CommentScreen';
-import axios from 'axios'
+import axios from 'axios';
 // path - router - user
-axios.defaults.baseURL = "https://dp-balo-store-api.vercel.app"
+// axios.defaults.baseURL = "https://dp-balo-store-api.vercel.app"
+axios.defaults.baseURL = 'http://localhost:5000/';
+
 function App() {
     const dispatch = useDispatch();
 

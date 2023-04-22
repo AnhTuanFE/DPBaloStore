@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import Rating from '../components/homeComponents/Rating';
@@ -19,8 +20,8 @@ import {
     PRODUCT_CREATE_COMMENTCHILD_RESET,
     PRODUCT_CREATE_COMMENT_RESET,
 } from '../Redux/Constants/ProductConstants';
+
 import { CART_CREATE_RESET } from '../Redux/Constants/CartConstants';
-import moment from 'moment';
 import { addToCart } from '../Redux/Actions/cartActions';
 import { listProduct } from '../Redux/Actions/ProductActions';
 import { listUser } from '../Redux/Actions/userActions';
@@ -58,40 +59,53 @@ const SingleProduct = ({ history, match }) => {
     const [optionsArrColor, setOptionArrColor] = useState('');
     const [color, setColor] = useState('');
     const [reviewColor, setReviewColor] = useState('');
+
     const productId = match.params.id;
     const dispatch = useDispatch();
 
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
+
     const optionColor = product?.optionColor?.sort(({ color: b }, { color: a }) => (a > b ? 1 : a < b ? -1 : 0));
+
     const listAllReviews = useSelector((state) => state.getAllReviewsProduct);
     const { reviews } = listAllReviews;
+
     const listAllComments = useSelector((state) => state.getAllCommentsProduct);
     const { comments } = listAllComments;
+
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
+
     const productReviewCreate = useSelector((state) => state.productReviewCreate);
     const productCommentCreate = useSelector((state) => state.productCommentCreate); //comment
     const productCommentChildCreate = useSelector((state) => state.productCommentChildCreate); //comment child
+
     const productList = useSelector((state) => state.productList);
     const { products, page, pages } = productList;
+
     const userList = useSelector((state) => state.userAll);
     const { users } = userList;
+
     const cartCreate = useSelector((state) => state.cartCreate);
     const { success: successAddCart, loading: loadingAddCart, error: errorAddCart } = cartCreate;
+
     // const commentsSort = product?.comments?.sort(({ createdAt: b }, { createdAt: a }) => (a > b ? 1 : a < b ? -1 : 0));
     // const reviewsSort = product.reviews?.sort(({ createdAt: b }, { createdAt: a }) => (a > b ? 1 : a < b ? -1 : 0));
+
     const {
         loading: loadingCreateReview,
         error: errorCreateReview,
         success: successCreateReview,
     } = productReviewCreate;
+
     //comment
     const {
         loading: loadingCreateComment,
         error: errorCreateComment,
         success: successCreateComment,
     } = productCommentCreate;
+
     //comment child
     const {
         loading: loadingCreateCommentChild,
@@ -225,8 +239,10 @@ const SingleProduct = ({ history, match }) => {
         dispatch(createProductCommentChild(productId, { questionChild, idComment }));
         setQuestionChild('');
     };
+
     function findProductUser(data) {
         const findUser = users?.find((user) => user._id === data.user);
+
         return (
             <img
                 src={`/userProfile/${findUser?.image}` || '/images/logo2.png'} // upload ảnh

@@ -1,16 +1,13 @@
-import React, { useEffect} from 'react';//, useState 
-import Header from './../components/Header';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, listCart , removefromcart} from './../Redux/Actions/cartActions';// clearFromCart, 
+import { addToCart, listCart, removefromcart } from './../Redux/Actions/cartActions'; // clearFromCart,
 import { Checkbox } from 'primereact/checkbox';
-// import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
-// import 'primereact/resources/primereact.min.css'; //core css
-// import 'primeicons/primeicons.css'; //icons
 import { CART_CREATE_RESET } from '../Redux/Constants/CartConstants';
 import { toast } from 'react-toastify';
 import Toast from '../components/LoadingError/Toast';
 import Loading from '../components/LoadingError/Loading';
+import Header from './../components/Header';
 
 const Toastobjects = {
     pauseOnFocusLoss: false,
@@ -68,6 +65,7 @@ const CartScreen = ({ match, location, history }) => {
             dispatch(removefromcart(id));
         }
     };
+
     function findCartCountInStock(item) {
         const findCart = item?.product?.optionColor?.find((option) => option.color === item.color);
         return (

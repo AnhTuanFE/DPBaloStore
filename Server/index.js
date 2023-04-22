@@ -14,7 +14,7 @@ import path from 'path';
 import Upload from './Routes/Upload.js';
 import newsRouter from './Routes/newsRouter.js';
 import forgotPassRouter from './Routes/forgotPassRouter.js';
-import cors from 'cors';
+import cors from 'cors'; //=====deploy
 dotenv.config();
 import { Server } from 'http';
 import imageProfile from './Routes/imageProfile.js';

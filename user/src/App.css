@@ -509,6 +509,7 @@ textarea:focus {
     margin-top: 10px;
     border-radius: 4px;
 }
+
 /* LOGIN */
 .login-from {
     position: relative;
@@ -760,6 +761,7 @@ textarea:focus {
 .table-responsive {
     width: 100%;
 }
+
 /* CART */
 .cart-iterm:first-child {
     margin-top: 0;

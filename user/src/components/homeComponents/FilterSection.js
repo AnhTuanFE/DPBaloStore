@@ -75,7 +75,7 @@ export default function FilterSection({ setRating, setMinPrice, setMaxPrice, rat
                     <h2 className="Category-section__h2">Các loại hàng</h2>
                 </div>
                 <ul className="Category-section__list">
-                    {categories.map((category) => (
+                    {categories?.map((category) => (
                         <li
                             className="Category-section__li"
                             onClick={() => {

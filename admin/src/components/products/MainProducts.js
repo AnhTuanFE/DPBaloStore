@@ -88,7 +88,7 @@ const MainProducts = (props) => {
                                 }}
                             >
                                 <option value={''}> Danh mục</option>
-                                {categories.map((category) => (
+                                {categories?.map((category) => (
                                     <option value={category._id}>{category.name}</option>
                                 ))}
                             </select>
