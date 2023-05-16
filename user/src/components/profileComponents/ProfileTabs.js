@@ -9,17 +9,19 @@ import { USER_UPDATE_PROFILE_RESET } from '../../Redux/Constants/UserContants';
 import isEmpty from 'validator/lib/isEmpty';
 import { listCart } from '../../Redux/Actions/cartActions';
 import { ListAvatar } from '../../Redux/Actions/avatarAction';
+
 import App from '../editAvatar/index';
 import axios from 'axios';
-// import Demo from '../editAvatar/index';
-import ReactDOM from 'react-dom';
-import Cropper from 'react-easy-crop';
-import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
+import Cropper from 'react-easy-crop';
+import getCroppedImg from '../editAvatar/cropImage';
+
+import Slider from '@material-ui/core/Slider';
+import ReactDOM from 'react-dom';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import ImgDialog from '../editAvatar/ImgDialog';
-import getCroppedImg from '../editAvatar/cropImage';
+
 import '../editAvatar/style.css';
 import { ListProvince } from '../../Redux/Actions/AdressProvinceActions';
 
@@ -43,6 +45,7 @@ const ProfileTabs = () => {
     const toastId = React.useRef(null);
     const refProfile = useRef(); /// ghi chú
     const refSetPassword = useRef(); /// ghi chú
+
     const Toastobjects = {
         pauseOnFocusLoss: false,
         draggable: false,

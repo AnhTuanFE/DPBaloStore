@@ -633,6 +633,7 @@ textarea:focus {
     padding-left: 2px;
     text-align: left;
 }
+
 .button-submit {
     display: flex;
     justify-content: center;
@@ -916,6 +917,7 @@ textarea:focus {
     padding: 0 20px;
     font-size: 17px;
 }
+
 .order-detail p {
     margin-top: 2px;
     font-size: 14px;

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../components/Header';
 import ProfileTabs from '../components/profileComponents/ProfileTabs';
-import { getUserDetails, updateUserProfile } from '../Redux/Actions/userActions';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
+import { getUserDetails, updateUserProfile } from '../Redux/Actions/userActions';
 const ProfileScreen = () => {
     // window.scrollTo(0, 0);
 

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './../components/Header';
-import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     cancelOrder,
@@ -26,7 +25,6 @@ import { Rating } from 'primereact/rating';
 import 'primereact/resources/themes/lara-light-indigo/theme.css'; //theme
 import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css';
-import axios from 'axios';
 import { ORDER_PAY_RESET } from '../Redux/Constants/OrderConstants';
 import { toast } from 'react-toastify';
 import Toast from '../components/LoadingError/Toast';
@@ -41,6 +39,8 @@ const Toastobjects = {
 
 const OrderScreen = ({ match }) => {
     // window.scrollTo(0, 0);
+    const orderId = match.params.id;
+
     const [sdkReady, setSdkReady] = useState(false);
     const [productId, setProductId] = useState('');
     const [rating, setRating] = useState(0);
@@ -48,7 +48,6 @@ const OrderScreen = ({ match }) => {
     const [product, setProduct] = useState('');
     const [bulean, setBulean] = useState(false);
     const [orderItemId, setOrderItemId] = useState('');
-    const orderId = match.params.id;
     const dispatch = useDispatch();
 
     const orderDetails = useSelector((state) => state.orderDetails);
